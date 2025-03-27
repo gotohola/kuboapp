@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kuboapp
+  labels:
+    app: kuboapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kuboapp
+  template:
+    metadata:
+      labels:
+        app: kuboapp
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:stable-alpine
+        ports:
+        - containerPort: 80
